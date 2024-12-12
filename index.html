@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Mix Restaurant - Coming Soon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://res.cloudinary.com/dcwwi6uwp/image/upload/v1730508669/assorted-chinese-dishes_zq1cgk.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.336);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container {
+            width: 620px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #e60000;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+        #countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+        .timer-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #e60000;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .timer-circle .number {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .timer-circle .label {
+            font-size: 0.7em;
+            text-transform: uppercase;
+        }
+        .map-container {
+            margin-top: 30px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .open-popup-btn {
+            background-color: #e60000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        @media (max-width: 660px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            .timer-circle {
+                width: 60px;
+                height: 60px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>China Mix Restaurant</h1>
+        <h2>Coming Soon! to Montevallo</h2>
+        <p>We're working hard to bring you the best mix of Chinese and Japanese cuisine. Stay tuned!</p>
+        <div id="countdown">
+            <div class="timer-circle" id="days">
+                <span class="number">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="timer-circle" id="hours">
+                <span class="number">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="timer-circle" id="minutes">
+                <span class="number">00</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="timer-circle" id="seconds">
+                <span class="number">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+        <p>Grand opening on January 30, 2025</p>
+        
+        <button class="open-popup-btn">Get Notified</button>
+
+        <div class="map-container">
+            <h3>Soon you can find Us Here</h3>
+            <p>728 Main St, Montevallo, AL 35115</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.2742010489234!2d-86.86351708435763!3d33.10612208087523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888b6e344dd90649%3A0x65c900b4b66a5c86!2s728%20Main%20St%2C%20Montevallo%2C%20AL%2035115!5e0!3m2!1sen!2sus!4v1634745369271!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="popup" id="notifyPopup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Get Notified</h2>
+            <form id="notifyForm" target="_blank" action="https://docs.google.com/forms/d/e/1FAIpQLScqiJrSiYqgatZ9ASrVhEi1VXgY7O-oUBWahx_K_8k_jOPR6g/formResponse" method="post">
+                <input type="email" name="emailAddress" class="form-input" placeholder="Email" required>
+                <input type="text" name="entry.53401284" class="form-input" placeholder="Name" required>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer functionality
+        const countdownDate = new Date("January 30, 2025 08:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.querySelector("#days .number").textContent = days.toString().padStart(2, '0');
+            document.querySelector("#hours .number").textContent = hours.toString().padStart(2, '0');
+            document.querySelector("#minutes .number").textContent = minutes.toString().padStart(2, '0');
+            document.querySelector("#seconds .number").textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "<h2>We're Open!</h2>";
+            }
+        }
+
+        updateCountdown(); // Run once immediately
+        const countdownFunction = setInterval(updateCountdown, 1000);
+
+        // Pop-up form functionality
+        const popup = document.getElementById("notifyPopup");
+        const openPopupBtn = document.querySelector(".open-popup-btn");
+        const closePopupBtn = document.querySelector(".close");
+
+        openPopupBtn.onclick = function() {
+            popup.style.display = "block";
+        }
+
+        closePopupBtn.onclick = function() {
+            popup.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
